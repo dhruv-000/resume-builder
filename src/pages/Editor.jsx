@@ -177,7 +177,7 @@ function Editor() {
           onDelete={() => deleteResume(activeResume.id)}
           onDuplicate={() => duplicateResume(activeResume.id)}
           onExport={handleExportPDF}
-          subtitle="Everything saves locally in your browser."
+          subtitle="Edit resume content and preview changes in real time."
           title={activeResume.title}
         />
 

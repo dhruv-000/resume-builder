@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import MobileNav from '../components/MobileNav'
 import Sidebar from '../components/Sidebar'
+import ThemeToggle from '../components/ThemeToggle'
 import Topbar from '../components/Topbar'
 import {
   DENSITY_OPTIONS,
@@ -45,7 +46,7 @@ function Settings() {
 
   const resetLocalData = () => {
     const confirmed = window.confirm(
-      'This will clear all local resumes and settings from this browser. Continue?',
+      'This will clear all saved resumes and preferences. Continue?',
     )
     if (!confirmed) return
 
@@ -60,7 +61,7 @@ function Settings() {
       <section className="w-full space-y-4">
         <Topbar
           onBackToDashboard
-          subtitle="Frontend-only preferences and backup controls."
+          subtitle="Set your resume defaults and manage backup files."
           title="Settings"
         />
 
@@ -145,22 +146,7 @@ function Settings() {
 
               <div>
                 <span className="label">Website Theme</span>
-                <div className="grid grid-cols-2 gap-2">
-                  <button
-                    className={settings.themeMode === 'light' ? 'btn-primary' : 'btn-secondary'}
-                    onClick={() => updateSettings({ themeMode: 'light' })}
-                    type="button"
-                  >
-                    Light
-                  </button>
-                  <button
-                    className={settings.themeMode === 'dark' ? 'btn-primary' : 'btn-secondary'}
-                    onClick={() => updateSettings({ themeMode: 'dark' })}
-                    type="button"
-                  >
-                    Dark
-                  </button>
-                </div>
+                <ThemeToggle className="w-full justify-center" />
               </div>
 
               <label className="flex items-center gap-2 rounded-xl border border-stone-200 bg-stone-50 px-3 py-2 text-sm font-medium text-stone-700">
@@ -177,7 +163,7 @@ function Settings() {
           <section className="panel">
             <h2 className="font-serif text-xl text-stone-900">Backup and Restore</h2>
             <p className="mt-1 text-sm text-stone-600">
-              Download or upload local data as a JSON file.
+              Download or upload your resume data as a JSON file.
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               <button className="btn-primary" onClick={downloadBackup} type="button">
@@ -188,12 +174,12 @@ function Settings() {
                 <input className="hidden" onChange={handleImport} type="file" />
               </label>
               <button className="btn-danger" onClick={resetLocalData} type="button">
-                Reset Local Data
+                Reset Resume Data
               </button>
             </div>
             {status && <p className="mt-3 text-sm text-teal-800">{status}</p>}
             <p className="mt-4 text-sm text-stone-600">
-              Local resumes stored in this browser: <strong>{resumes.length}</strong>
+              Saved resumes: <strong>{resumes.length}</strong>
             </p>
           </section>
         </div>

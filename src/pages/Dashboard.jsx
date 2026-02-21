@@ -30,7 +30,7 @@ function Dashboard() {
       <section className="w-full space-y-4">
         <Topbar
           onCreate={handleCreate}
-          subtitle="Manage local resumes without any backend."
+          subtitle="Create, organize, and edit your resumes."
           title="Dashboard"
         />
 
@@ -78,16 +78,6 @@ function Dashboard() {
             </article>
           ))}
         </div>
-
-        <section className="panel">
-          <h3 className="font-serif text-lg text-stone-900">Static Hosting Checklist</h3>
-          <ul className="mt-3 space-y-1 text-sm text-stone-700">
-            <li>All data remains in browser localStorage</li>
-            <li>No API calls and no backend dependencies</li>
-            <li>PDF generation executes entirely client-side</li>
-            <li>Build output is fully deployable to GitHub Pages</li>
-          </ul>
-        </section>
 
         <MobileNav />
       </section>

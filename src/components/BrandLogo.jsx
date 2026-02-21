@@ -12,7 +12,6 @@ function BrandLogo({ showText = true, size = 'md', className = '' }) {
       {showText && (
         <div className="leading-tight">
           <p className="text-sm font-semibold text-stone-900">Resume Builder Pro</p>
-          <p className="text-[11px] font-medium text-stone-500">by Dhruv Gosavi</p>
         </div>
       )}
     </div>
@@ -20,4 +19,3 @@ function BrandLogo({ showText = true, size = 'md', className = '' }) {
 }
 
 export default BrandLogo
-
